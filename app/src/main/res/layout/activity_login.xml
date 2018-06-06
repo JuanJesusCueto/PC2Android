@@ -4,15 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".activities.LoginActivity">
+
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:layout_margin="@dimen/big_margin"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:layout_margin="@dimen/big_margin"
+        app:layout_constraintTop_toBottomOf="@id/emailEditText"/>
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:background="@color/colorAccent"
+        android:layout_margin="@dimen/big_margin"
+        app:layout_constraintTop_toBottomOf="@id/passwordEditText"/>
+
+    <Button
+        android:id="@+id/singUpButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Signup"
+        android:background="@color/colorAccent"
+        android:layout_margin="@dimen/big_margin"
+        app:layout_constraintTop_toBottomOf="@id/loginButton"/>
 
     <TextView
+        android:id="@+id/filterTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Want to search developers?"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_margin="@dimen/big_margin"
+        app:layout_constraintTop_toBottomOf="@id/singUpButton"
+        app:layout_constraintStart_toStartOf="parent"/>
 
+    <Button
+        android:id="@+id/searchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:text="Search"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:background="@color/colorPrimary"
+        android:layout_margin="@dimen/big_margin"
+        app:layout_constraintTop_toBottomOf="@id/singUpButton"
+        app:layout_constraintStart_toEndOf="@id/filterTextView"
+        app:layout_constraintEnd_toEndOf="parent"/>
 </android.support.constraint.ConstraintLayout>

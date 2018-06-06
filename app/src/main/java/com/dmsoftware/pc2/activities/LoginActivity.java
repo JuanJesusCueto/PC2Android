@@ -1,7 +1,9 @@
-package com.dmsoftware.pc2;
+package com.dmsoftware.pc2.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.dmsoftware.pc2.R;
 
 public class LoginActivity extends AppCompatActivity {
 
