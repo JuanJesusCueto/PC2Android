@@ -73,7 +73,8 @@ public class SignupActivity extends AppCompatActivity {
                                             "Tenemos un problema",
                                             Toast.LENGTH_SHORT).show();
                                 }else{
-                                    saveUser(user);
+                                    FirebaseUser firebaseUser = auth.getCurrentUser();
+                                    //saveUser(user);
                                     Intent intent=new Intent(SignupActivity.this,
                                             MainActivity.class);
                                     startActivity(intent);
@@ -85,8 +86,8 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private void saveUser(User user) {
-            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-            databaseReference.child("user").child(user.getEmail()).setValue(user);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference.child("user").child(user.getEmail()).setValue(user);
     }
     //String id = databaseReference.push().getKey()
 }
