@@ -39,7 +39,7 @@ public class SignupActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
-        nameEditText = (EditText) findViewById(R.id.nameEditText);
+        nameEditText =  findViewById(R.id.nameEditText);
         lastNameEditText = (EditText) findViewById(R.id.lastNameEditText);
         countryEditText = (EditText) findViewById(R.id.countryEditText);
         biographyEditText = (EditText) findViewById(R.id.biographyEditText);
@@ -60,11 +60,11 @@ public class SignupActivity extends AppCompatActivity {
                 lastName = lastNameEditText.getText().toString();
                 country = countryEditText.getText().toString();
                 biography = biographyEditText.getText().toString();
-                email = emailEditText.getText().toString();
+                email = emailEditText.getText().toString().trim();
 
                 user = new User(name,lastName,country,biography, email);
 
-                auth.createUserWithEmailAndPassword(emailEditText.getText().toString(), passwordEditText.getText().toString())
+                auth.createUserWithEmailAndPassword(email, passwordEditText.getText().toString())
                         .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -74,7 +74,7 @@ public class SignupActivity extends AppCompatActivity {
                                             Toast.LENGTH_SHORT).show();
                                 }else{
                                     FirebaseUser firebaseUser = auth.getCurrentUser();
-                                    //saveUser(user);
+                                    saveUser(user);
                                     Intent intent=new Intent(SignupActivity.this,
                                             MainActivity.class);
                                     startActivity(intent);
@@ -87,7 +87,7 @@ public class SignupActivity extends AppCompatActivity {
 
     private void saveUser(User user) {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-        databaseReference.child("user").child(user.getEmail()).setValue(user);
+        databaseReference.child("user").child(user.getName()).setValue(user);
     }
     //String id = databaseReference.push().getKey()
 }
