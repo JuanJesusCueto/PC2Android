@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
 
         loginButton = (Button) findViewById(R.id.loginButton);
         registerButton = (Button) findViewById(R.id.singUpButton);
-        filterButton = (Button) findViewById(R.id.filterButton);
+        filterButton = (Button) findViewById(R.id.searchButton);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,13 +67,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-      /*  filterButton.setOnClickListener(new View.OnClickListener() {
+        filterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent intent = new Intent(LoginActivity.this, FilterActivity.class);
                 startActivity(intent);
             }
-        });*/
+        });
     }
 }

@@ -1,4 +1,4 @@
 package com.dmsoftware.pc2.adapters;
 
-public class usersAdapter {
+public class AbilitiesAdapter {
 }
